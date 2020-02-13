@@ -1,0 +1,43 @@
+syntax = "proto3";
+package SAUSAGE_SHOOT_OSS;
+
+import "common.proto";
+
+// 玩家登陆
+message PlayerLogin {
+	Player player = 1; //玩家基础信息
+	Time time = 2; //时间
+	int64 plat_id = 3; //(必填)iOS 0 / Android 1
+	int64 zone_id = 4; //(必填)针对分区分服的游戏填写分区id，用来唯一标示一个区；非分区分服游戏请填写0
+}
+
+// 玩家登出
+message PlayerLogout {
+	Player player = 1; //玩家基础信息
+	Time time = 2; //时间
+	int64 plat_id = 3; //(必填)iOS 0 / Android 1
+	int64 zone_id = 4; //(必填)针对分区分服的游戏填写分区id，用来唯一标示一个区；非分区分服游戏请填写0
+}
+
+// 玩家通关
+message PlayerPassMission {
+	Player player = 1; //玩家基础信息
+	Time time = 2; //时间
+	int64 mission_id = 3; //关卡id
+}
+
+// 玩家升级
+message PlayerLevelUp {
+	Player player = 1; //玩家基础信息
+	Time time = 2; //时间
+	int64 from = 3; //原先等级
+	int64 to = 4; //升级之后等级
+}
+
+// 服务器心跳日志
+message GameServerState {
+	Time time = 1; //时间
+	string game_ip = 2; //(必填)服务器IP
+	int64 zone_id = 3; //(必填)针对分区分服的游戏填写分区id，用来唯一标示一个区；非分区分服游戏请填写0
+}
+

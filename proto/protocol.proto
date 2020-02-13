@@ -1,0 +1,23 @@
+syntax = "proto3";
+package SAUSAGE_SHOOT_OSS;
+
+import "sausageshoot.proto";
+
+// LOG类型
+enum OSS_LOG_TYPE {
+	OSS_LOG_INVALID = 0; // 无效日志
+	OSS_LOG_PLAYER_LOGIN = 1; // 玩家登陆
+	OSS_LOG_PLAYER_LOGOUT = 2; // 玩家登出
+	OSS_LOG_PLAYER_PASS_MISSION = 3; // 玩家通关
+	OSS_LOG_PLAYER_LEVEL_UP = 4; // 玩家升级
+	OSS_LOG_GAME_SERVER_STATE = 5; // 服务器状态
+}
+
+// 日志
+message OSS_LOG_DATA {
+	PlayerLogin player_login = 1; //玩家登陆
+	PlayerLogout player_logout = 2; //玩家登出
+	PlayerPassMission player_pass_mission = 3; //玩家通关
+	PlayerLevelUp player_level_up = 4; //玩家升级
+	GameServerState game_server_state = 5; //服务器心跳
+}

@@ -1,0 +1,15 @@
+syntax = "proto3";
+package SAUSAGE_SHOOT_OSS;
+
+// 玩家注册
+message Player {
+	int64 open_id = 1; //(必填)用户OPENID号
+	string nickname = 2; //玩家nickname
+	int64 sex = 3; //玩家性别
+}
+
+// 时间
+message Time {
+	string event_time = 1; //(必填)游戏事件的时间, 格式 YYYY-MM-DD HH:MM:SS
+}
+
