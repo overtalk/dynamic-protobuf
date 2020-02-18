@@ -77,6 +77,9 @@ func (dynamicParser *DynamicParser) ParseToMap(messageName string, protocolID in
 
 func (dynamicParser *DynamicParser) toMap(msgDesc *desc.MessageDescriptor, msg *dynamic.Message) []interface{} {
 	var ret []interface{}
+	if msg == (*dynamic.Message)(nil) {
+		return ret
+	}
 
 	for _, fieldDesc := range msgDesc.GetFields() {
 		fieldValue := msg.GetField(fieldDesc)
